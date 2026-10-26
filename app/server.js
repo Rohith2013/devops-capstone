@@ -4,7 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-  res.send('<h1>DevOps Capstone Project</h1>');
+  res.send('<h1>DevOps Capstone Project v2</h1>');
 });
 
 app.get('/health', (req, res) => {
