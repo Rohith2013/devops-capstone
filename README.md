@@ -65,11 +65,11 @@ Endpoints: `/` (home page) and `/health` (health check, returns `{"status":"ok"}
 
    | Port | Purpose | Source |
    |---|---|---|
-   | 22 | SSH | Your IP, and the security group itself (Jenkins to app server) |
-   | 8080 | Jenkins | Your IP |
-   | 80 | Application | Your IP |
-   | 3001 | Grafana | Your IP |
-   | 9090 | Prometheus | Your IP |
+   | 22 | SSH | My IP, and the security group itself (Jenkins to app server) |
+   | 8080 | Jenkins | My IP |
+   | 80 | Application | My IP |
+   | 3001 | Grafana | My IP |
+   | 9090 | Prometheus | My IP |
 
 4. Launch two Ubuntu EC2 instances using that security group:
    - `jenkins-server` (t3.small)
