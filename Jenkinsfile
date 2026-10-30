@@ -29,6 +29,12 @@ pipeline {
             }
         }
 
+        stage('Test') {
+            steps {
+                sh 'docker run --rm -v "$WORKSPACE/app":/usr/src/app -w /usr/src/app -u "$(id -u):$(id -g)" -e HOME=/tmp node:20-alpine npm test'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t ${IMAGE_NAME}:${IMAGE_TAG} -t ${IMAGE_NAME}:latest .'
