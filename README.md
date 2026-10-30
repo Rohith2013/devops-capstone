@@ -47,6 +47,7 @@ Developer -> GitHub -> Jenkins (EC2) -> Docker Hub -> App EC2 (Docker container)
 # Without Docker
 cd app
 npm install
+npm test                       # run automated tests
 npm start                      # http://localhost:3000
 
 # With Docker
@@ -137,7 +138,7 @@ sudo mkswap /swapfile && sudo swapon /swapfile
 
 1. Developer pushes code to GitHub.
 2. Jenkins detects the change (Poll SCM) and starts the pipeline.
-3. Stages: **Checkout -> Install Dependencies -> Build Docker Image -> Push to Docker Hub -> Deploy to App Server -> Verify Deployment**.
+3. Stages: **Checkout -> Install Dependencies -> Test -> Build Docker Image -> Push to Docker Hub -> Deploy to App Server -> Verify Deployment**.
 4. The app server pulls the new image, replaces the running container and the pipeline checks `/health`.
 5. Prometheus scrapes Node Exporter (host metrics) and cAdvisor (container metrics); Grafana visualises them.
 6. Cron runs `backup.sh` daily and `cleanup_logs.sh` weekly.
